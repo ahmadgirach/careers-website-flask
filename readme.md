@@ -5,6 +5,7 @@
 - Activate the virtual env and install requirements via ```pip install -r requirements.txt``` and ```npm i```
 - You don't have to provide ```DATABASE_URL``` in local machine as it'll connect ```SQLite``` by default.
 - Run, ```python app.py``` and ```npm run tailwind``` and visit ```http://localhost:8000```
+- Run ```flask seed``` to insert demo jobs into the database
 
 ### Screenshots
 ![image 1](/static/images/view-1.png)
