@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ job['title'] }} {% endblock title %}
+
+{% block content %}
+
+<section class="w-full max-w-5xl mt-16 mx-auto">
+    <div class="flex flex-col justify-center items-center border p-10 space-y-10">
+        <ul class="flex items-center gap-5 text-sm">
+            <li class="flex items-center gap-2">
+                <img src="/static/icons/users-round.svg" alt="Department Icon" class="size-4">
+                <span class="text-gray-600">Engineering</span>
+            </li>
+            <li class="flex items-center gap-2">
+                <img src="/static/icons/globe.svg" alt="Global Icon" class="size-4">
+                <span class="text-gray-600">{{ job['location'] }}</span>
+            </li>
+            <li class="flex items-center gap-2">
+                <img src="/static/icons/clock-9.svg" alt="Hours Icon" class="size-4">
+                <span class="text-gray-600">Full Time</span>
+            </li>
+        </ul>
+        <h2 class="text-5xl font-bold">{{ job['title'] }}</h2>
+        <h3 class="text-center text-sm">
+            <a href="/" class="text-gray-600">Careers / </a>
+            <span class="font-semibold">Engineering</span>
+        </h3>
+    </div>
+    <div class="flex justify-between border p-10">
+        <div class="w-3/4">
+            <h2 class="font-semibold text-3xl">About Us:</h2>
+            <p class="mt-6 text-gray-600">As a leading product-based company, we specialize in creating cutting-edge solutions that drive growth and deliver exceptional value to our customers. Our team of passionate professionals is dedicated to pushing the boundaries of technology and design, ensuring that every product we bring to market is of the highest quality and performance. With a customer-centric approach and a commitment to continuous improvement, we're your trusted partner for pioneering products that shape the future.</p>
+        </div>
+        <div class="h-full flex flex-col justify-center">
+            <h2 class="font-semibold text-3xl">Perks:</h2>
+            <ul class="flex flex-col gap-4 mt-6 text-gray-600">
+                <li class="flex items-center gap-2">
+                    <img src="/static/icons/monitor-check.svg" alt="Gear Icon" class="size-5"/>
+                    <span>Home Gear</span>
+                </li>
+                <li class="flex items-center gap-2">
+                    <img src="/static/icons/calendar.svg" alt="Calendar Icon" class="size-5"/>
+                    <span>Flexible Working Hours</span>
+                </li>
+                <li class="flex items-center gap-2">
+                    <img src="/static/icons/map-pin.svg" alt="Location Icon" class="size-5"/>
+                    <span>Remote Friendly</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex justify-between items-center border p-10">
+        <div>
+            <h2 class="font-semibold text-3xl">Responsibilities:</h2>
+            <ul class="flex flex-col justify-center gap-3 list-disc mt-6 ml-4 text-gray-600">
+                {% for responsibility in job.responsibilities.split("\n") %}
+                    <li>{{ responsibility }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="flex justify-between items-center border p-10">
+        <div>
+            <h2 class="font-semibold text-3xl">Requirements:</h2>
+            <ul class="flex flex-col justify-center gap-3 list-disc mt-6 ml-4 text-gray-600">
+                {% for requirement in job.requirements.split("\n") %}
+                    <li>{{ requirement }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="flex flex-col border bg-white">
+        <div class="w-full border-b p-10">
+            <h2 class="font-semibold text-2xl">Apply Now.</h2>
+            <p class="text-gray-700 text-sm mt-2">Tell us, why you're a good fit for {{ job['title'] }} role.</p>
+        </div>
+        <div class="mx-10 my-5">
+            <form action="/jobs/{{ job['id'] }}/apply" method="post">
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="flex flex-col gap-2">
+                        <label for="first_name" class="text-gray-600 text-sm">First Name</label>
+                        <input type="text" name="first_name" id="first_name" placeholder="First Name" class="rounded-md px-3 py-2.5 bg-gray-50 text-sm outline-none transition-all focus:ring focus:ring-gray-400 border"  autocomplete="off" required/>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="last_name" class="text-gray-600 text-sm">Last Name</label>
+                        <input type="text" name="last_name" id="last_name" placeholder="Last Name" class="rounded-md px-3 py-2.5 bg-gray-50 text-sm outline-none transition-all focus:ring focus:ring-gray-400 border"  autocomplete="off" required/>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="email" class="text-gray-600 text-sm">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Email" class="rounded-md px-3 py-2.5 bg-gray-50 text-sm outline-none transition-all focus:ring focus:ring-gray-400 border" autocomplete="off" required/>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="phone_number" class="text-gray-600 text-sm">Phone Number</label>
+                        <input type="tel" name="phone_number" id="phone_number" placeholder="Phone Number" class="rounded-md px-3 py-2.5 bg-gray-50 text-sm outline-none transition-all focus:ring focus:ring-gray-400 border"  autocomplete="off"/>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="resume_url" class="text-gray-600 text-sm">Resume Url</label>
+                        <input type="text" name="resume_url" id="resume_url" placeholder="https://" class="rounded-md px-3 py-2.5 bg-gray-50 text-sm outline-none transition-all focus:ring focus:ring-gray-400 border"  autocomplete="off" required/>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="linkedin_url" class="text-gray-600 text-sm">Linkedin Url</label>
+                        <input type="text" name="linkedin_url" id="linkedin_url" placeholder="https://" class="rounded-md px-3 py-2.5 bg-gray-50 text-sm outline-none transition-all focus:ring focus:ring-gray-400 border"  autocomplete="off"/>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <button type="submit" class="rounded-full bg-black text-white px-5 py-2.5 outline-none text-sm transition-colors hover:bg-gray-800">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

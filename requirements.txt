@@ -1,0 +1,6 @@
+flask
+Flask-SQLAlchemy
+Flask-Migrate
+flask-cors
+gunicorn
+python-dotenv

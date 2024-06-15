@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} Application Submission {% endblock title %}
+
+{% block content %}
+<section class="flex flex-col justify-center items-center min-h-screen space-y-3">
+    <h2 class="font-semibold text-2xl">Application submitted.</h2>
+    <p class="text-gray-600">Thanks for applying for the post of {{ job['title'] }}.</p>
+    <a href="/" class="text-sm text-blue-500">Go back Home?</a>
+</section>
+{% endblock content%}

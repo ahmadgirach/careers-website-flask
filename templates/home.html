@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} Careers {% endblock title %}
+
+{% block content %}
+    <section class="flex flex-col justify-center items-center p-5 space-y-10">
+        <h1 class="font-bold text-4xl">Join us.</h1>
+        <img id="banner" src="/static/banner.jpg" loading="lazy" alt="Banner" class="max-w-full w-3/5 h-auto object-cover"/>
+        <a href="#open_positions" class="rounded-full bg-black text-white font-semibold px-6 py-4 transition-colors hover:bg-slate-800">View Open Positions</a>
+    </section>
+    <section id="benefits" class="max-w-5xl mx-auto mt-8">
+        <h2 class="font-bold text-3xl text-center">Our benefits</h2>
+        <div class="grid grid-cols-3 gap-16 mt-8 rounded p-10 border">
+            <div class="min-w-54 min-h-32 flex flex-col gap-5">
+                <img src="/static/icons/shrub.svg" alt="Career Growth Opportunities" class="size-10"/>
+                <span class="font-semibold text-lg">Career Growth Opportunities</span>
+                <p class="text-slate-800">We prioritize the professional development of our employees. We offer continuous learning programs, mentorship, and clear career progression paths to help you achieve your full potential.</p>
+            </div>
+            <div class="min-w-54 min-h-32 flex flex-col gap-5">
+                <img src="/static/icons/briefcase-business.svg" alt="Collaborative Work Environment" class="size-10"/>
+                <span class="font-semibold text-lg">Collaborative Work Environment</span>
+                <p class="text-slate-800">Join a team where collaboration and innovation thrive. We foster a supportive and inclusive work culture that encourages teamwork, idea-sharing, and mutual respect, enabling you to work effectively and enjoyably.</p>
+            </div>
+            <div class="min-w-54 min-h-32 flex flex-col gap-5">
+                <img src="/static/icons/badge-dollar-sign.svg" alt="Competitive Compensation</" class="size-10"/>
+                <span class="font-semibold text-lg">Competitive Compensation</span>
+                <p class="text-slate-800">We recognize and reward your hard work and dedication with competitive salaries and comprehensive benefits packages. Our compensation plans are designed to reflect your skills, experience, and contributions to the company.</p>
+            </div>
+            <div class="min-w-54 min-h-32 flex flex-col gap-5">
+                <img src="/static/icons/sparkles.svg" alt="Cutting-Edge Projects" class="size-10"/>
+                <span class="font-semibold text-lg">Cutting-Edge Projects</span>
+                <p class="text-slate-800">Be part of exciting and innovative projects that make a real impact. You will have the opportunity to work on groundbreaking products and technologies that are at the forefront of the industry.</p>
+            </div>
+            <div class="min-w-54 min-h-32 flex flex-col gap-5">
+                <img src="/static/icons/scale.svg" alt="Work-Life Balance" class="size-10"/>
+                <span class="font-semibold text-lg">Work-Life Balance</span>
+                <p class="text-slate-800">We understand the importance of maintaining a healthy work-life balance. Our flexible working hours, remote work options, and supportive policies help you manage your professional and personal life effectively.</p>
+            </div>
+            <div class="min-w-54 min-h-32 flex flex-col gap-5">
+                <img src="/static/icons/activity.svg" alt="Health and Wellness" class="size-10"/>
+                <span class="font-semibold text-lg">Health and Wellness Programs</span>
+                <p class="text-slate-800">Your well-being is important to us. We offer comprehensive health and wellness programs, including medical insurance, fitness incentives, and mental health resources to ensure you stay healthy and happy.</p>
+            </div>
+        </div>
+    </section>
+    <section id="open_positions" class="max-w-5xl mx-auto mt-8">
+        <h2 class="font-bold text-3xl text-center">Open positions</h2>
+        <div class="mt-8">
+            {% if jobs %}
+                {% for job in jobs %}
+                    {% include 'job_item.html' %}
+                {% endfor %}
+            {% else %}
+                <p class="text-gray-600 text-center">There are open positions at the moment. Please check back later.</p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock content %}

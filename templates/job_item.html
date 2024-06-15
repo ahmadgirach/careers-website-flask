@@ -1,0 +1,9 @@
+<div class="flex justify-between items-center border p-10 transition-colors hover:bg-white/50 group">
+    <div>
+        <h3 class="font-semibold text-2xl">{{job['title']}}</h3>
+        <p class="mt-2">{{job['location']}}</p>
+    </div>
+    <div>
+        <a href="/jobs/{{job['id']}}" target="_blank" rel="noopener noreferrer" class="rounded-full bg-white/90 px-6 py-3 transition-colors group-hover:bg-slate-100 text-sm">Read more</a>
+    </div>
+</div>
