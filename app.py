@@ -2,7 +2,7 @@ from flask import render_template, request
 
 from config import app, db
 from data import jobs
-from modes import Application, Job
+from models import Application, Job
 
 
 @app.cli.command("seed")

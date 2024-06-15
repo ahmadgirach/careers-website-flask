@@ -683,12 +683,13 @@ video {
   display: flex
 }
 
-.inline-flex {
-  display: inline-flex
-}
-
 .grid {
   display: grid
+}
+
+.size-10 {
+  width: 2.5rem;
+  height: 2.5rem
 }
 
 .size-4 {
@@ -701,21 +702,12 @@ video {
   height: 1.25rem
 }
 
-.size-10 {
-  width: 2.5rem;
-  height: 2.5rem
-}
-
 .h-auto {
   height: auto
 }
 
 .h-full {
   height: 100%
-}
-
-.h-1\/2 {
-  height: 50%
 }
 
 .min-h-32 {
@@ -730,28 +722,16 @@ video {
   width: 75%
 }
 
-.w-full {
-  width: 100%
-}
-
-.w-1\/4 {
-  width: 25%
-}
-
-.w-2\/4 {
-  width: 50%
-}
-
 .w-3\/5 {
   width: 60%
 }
 
-.max-w-5xl {
-  max-width: 64rem
+.w-full {
+  width: 100%
 }
 
-.max-w-\[100\%\] {
-  max-width: 100%
+.max-w-5xl {
+  max-width: 64rem
 }
 
 .max-w-full {
@@ -786,12 +766,12 @@ video {
   justify-content: space-between
 }
 
-.gap-2 {
-  gap: 0.5rem
+.gap-16 {
+  gap: 4rem
 }
 
-.gap-20 {
-  gap: 5rem
+.gap-2 {
+  gap: 0.5rem
 }
 
 .gap-3 {
@@ -808,14 +788,6 @@ video {
 
 .gap-8 {
   gap: 2rem
-}
-
-.gap-10 {
-  gap: 2.5rem
-}
-
-.gap-16 {
-  gap: 4rem
 }
 
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
@@ -891,18 +863,9 @@ video {
   background-color: rgb(255 255 255 / 0.9)
 }
 
-.fill-current {
-  fill: currentColor
-}
-
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover
-}
-
-.object-fill {
-  -o-object-fit: fill;
-     object-fit: fill
 }
 
 .p-10 {
