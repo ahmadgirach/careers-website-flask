@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: aeb03a6667c2
+Revision ID: e90a7d01ab36
 Revises: 
-Create Date: 2024-06-14 17:39:41.833652
+Create Date: 2024-06-15 18:41:19.445422
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'aeb03a6667c2'
+revision = 'e90a7d01ab36'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,12 +21,12 @@ def upgrade():
     op.create_table('application',
     sa.Column('id', sa.String(length=30), nullable=False),
     sa.Column('job_id', sa.String(length=30), nullable=True),
-    sa.Column('full_name', sa.String(length=30), nullable=True),
+    sa.Column('first_name', sa.String(length=30), nullable=True),
+    sa.Column('last_name', sa.String(length=30), nullable=True),
     sa.Column('email', sa.String(length=30), nullable=True),
-    sa.Column('linkedin_url', sa.String(length=500), nullable=True),
-    sa.Column('education', sa.String(length=2000), nullable=True),
-    sa.Column('work_experience', sa.String(length=2000), nullable=True),
+    sa.Column('phone_number', sa.String(length=20), nullable=True),
     sa.Column('resume_url', sa.String(length=500), nullable=True),
+    sa.Column('linkedin_url', sa.String(length=500), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
@@ -35,7 +35,7 @@ def upgrade():
     sa.Column('id', sa.String(length=30), nullable=False),
     sa.Column('title', sa.String(length=20), nullable=True),
     sa.Column('location', sa.String(length=100), nullable=True),
-    sa.Column('salary', sa.Integer(), nullable=True),
+    sa.Column('salary', sa.String(length=20), nullable=True),
     sa.Column('currency', sa.String(length=10), nullable=True),
     sa.Column('responsibilities', sa.String(length=1000), nullable=True),
     sa.Column('requirements', sa.String(length=1000), nullable=True),

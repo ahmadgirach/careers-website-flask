@@ -5,7 +5,7 @@ class Job(db.Model):
     id = db.Column(db.String(30), primary_key=True, default=Cuid().generate)
     title = db.Column(db.String(20))
     location = db.Column(db.String(100))
-    salary = db.Column(db.Integer, nullable=True)
+    salary = db.Column(db.String(20), nullable=True)
     currency = db.Column(db.String(10))
     responsibilities = db.Column(db.String(1000))
     requirements = db.Column(db.String(1000))

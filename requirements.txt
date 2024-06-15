@@ -4,3 +4,4 @@ Flask-Migrate
 flask-cors
 gunicorn
 python-dotenv
+psycopg2-binary
