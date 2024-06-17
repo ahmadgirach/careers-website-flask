@@ -48,11 +48,14 @@ def apply_to_job(id):
         db.session.commit()
         return render_template("application_submitted.html", job=job)
     except (ValueError, TypeError, Exception) as e:
-        return f"<p>Somthing went wrong while submitting your application: {e}. Please try again later.</p>", 500
+        return (
+            f"<p>Somthing went wrong while submitting your application: {e}. Please try again later.</p>",
+            500,
+        )
 
 
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    
+
     app.run(port=8000, debug=True)
