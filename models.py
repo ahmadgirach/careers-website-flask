@@ -3,6 +3,8 @@ from cuid2 import Cuid
 
 
 class BaseModel(db.Model):
+    __abstract__ = True
+
     id = db.Column(db.String(30), primary_key=True, default=Cuid().generate)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp())
